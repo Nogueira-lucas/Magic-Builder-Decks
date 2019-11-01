@@ -1,0 +1,12 @@
+.navbar {
+    background-image: linear-gradient(rgb(32, 0, 60),rgb(58, 0, 109));
+    color: white;
+}
+
+.container {
+    width: 86%;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: baseline; 
+}

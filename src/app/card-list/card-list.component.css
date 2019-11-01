@@ -1,0 +1,28 @@
+mat-card {
+    margin: 0.65%;
+    padding: 0;
+    width: 20%;
+    max-height: 500px;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+mat-card img{
+    width: 100%;
+    height: 70%;
+    margin: 1%
+}
+
+.cardText {
+    text-justify: auto;
+    text-align: justify;
+    size: 2vw;
+    height: 10%;
+    max-width: 20ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    padding: 3%;
+}

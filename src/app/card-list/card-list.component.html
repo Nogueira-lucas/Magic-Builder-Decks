@@ -1,0 +1,26 @@
+<div *ngIf="cards$ | async as response; else loading">
+    <div fxLayout.gt-sm="row wrap" 
+         fxLayout.sm="column" 
+         flexLayoutAlign="space-around"
+         fxLayoutAlign="center"
+         gdRow="3">
+        <mat-card @fadeCard *ngFor="let card of response.cards">
+            <mat-card-header>
+                <strong>
+                    <h3>{{ card.name }}</h3>
+                </strong>
+            </mat-card-header>
+            <img mat-card-image [src]="card.imageUrl" default="{{IMAGE_DEFAULT_PATH}}" class="img">
+            <mat-card-content>
+                <p class="cardText">{{ card.text }}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <mat-paginator [length]="100" 
+                   [pageSize]="10" 
+                   [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>
+<ng-template #loading>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
