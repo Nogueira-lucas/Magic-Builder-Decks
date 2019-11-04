@@ -5,12 +5,26 @@ mat-card {
     max-height: 500px;
     overflow: hidden !important;
     text-overflow: ellipsis;
+    animation: 2s fadeIn;
 }
 
 mat-card img{
     width: 100%;
     height: 70%;
     margin: 1%
+}
+
+@keyframes fadeIn {
+    from {
+        margin-top: 0%;
+        opacity: 0;
+        transform: rotateY(180deg);
+    }
+    to {
+        margin: 0.65%;
+        opacity: 1;
+        transform: rotateY(0);
+    }
 }
 
 .cardText {
@@ -25,4 +39,22 @@ mat-card img{
     text-align: center;
     width: 100%;
     padding: 3%;
+}
+
+.errorPainel {
+    border-radius: 5px;
+    width: 40%;
+    margin: 2% ;
+    color: #fff;
+    padding: 3%;
+    background-image: linear-gradient(0.50turn, rgb(68, 10, 97), rgba(105, 0, 113, 0.5));
+}
+.errorPainel h3 {
+    font-size: 2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.errorPainel p {
+    font-size: 1.8em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

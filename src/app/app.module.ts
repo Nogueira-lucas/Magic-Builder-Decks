@@ -9,15 +9,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ImagePreloadDirective } from './shared/image-preload.directive';
 import { MenuTopoComponent } from './menu-topo/menu-topo.component';
 import { CardListComponent } from './card-list/CardListComponent';
-
-
+import { RodapeComponent } from './rodape/rodape.component';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardListComponent,
     ImagePreloadDirective,
-    MenuTopoComponent
+    MenuTopoComponent,
+    RodapeComponent,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule,

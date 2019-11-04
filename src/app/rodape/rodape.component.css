@@ -1,0 +1,10 @@
+footer p {
+    text-align: center;
+}
+
+footer {
+    position: flex;
+    justify-self: flex-end;
+    flex-direction: column;
+    margin: 2%
+}

@@ -50,6 +50,7 @@ export class CardListComponent implements OnInit {
   @ViewChild('mat-paginator', { static: false }) paginator: MatPaginatorModule;
 
   private cards$: Observable<Card[]>;
+  private isErrorOnLoadCards: boolean;
 
   private IMAGE_DEFAULT_PATH = '../../assets/img/magic-card-error.jpg';
 
@@ -57,11 +58,21 @@ export class CardListComponent implements OnInit {
 
   ngOnInit() {
     this.getCardList();
+
+    this.cards$.subscribe(next => {},
+                          error => {
+                            console.log('erro');
+                            this.isErrorOnLoadCards = true;
+                          },
+                          () => {
+                            console.log('complete!');
+                          });
   }
 
   getCardList() {
     this.cards$ = this.cardService.getCardList();
   }
+
   changePermission(item: string) {
     if (item) {
       return item.replace('http', 'https');

@@ -16,11 +16,17 @@
             </mat-card-content>
         </mat-card>
     </div>
-    <mat-paginator [length]="100" 
-                   [pageSize]="10" 
-                   [pageSizeOptions]="[5, 10, 25, 100]">
-    </mat-paginator>
+    <jw-pagination [items]="response.cards" 
+    (changePage)="onChangePage($event)" [pageSize]="5">
+    </jw-pagination>
 </div>
+<div *ngIf="isErrorOnLoadCards" class="errorPainel">
+    <header>
+        <h3>Erro ao listar cards!</h3>
+    </header>
+    <p>Lamentamos a falha, aguarde alguns minutos.</p>
+</div>
+
 <ng-template #loading>
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar mode="indeterminate" *ngIf="!isErrorOnLoadCards"></mat-progress-bar>
 </ng-template>
