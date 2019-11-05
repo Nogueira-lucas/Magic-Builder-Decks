@@ -1,8 +1,13 @@
+.cardsContainer {
+    flex-basis: 2;
+    flex-shrink: 30;
+}
+
 mat-card {
     margin: 0.65%;
     padding: 0;
     width: 20%;
-    max-height: 500px;
+    max-height: 45%;
     overflow: hidden !important;
     text-overflow: ellipsis;
     animation: 2s fadeIn;
@@ -11,7 +16,7 @@ mat-card {
 mat-card img{
     width: 100%;
     height: 70%;
-    margin: 1%
+    margin: 1%;
 }
 
 @keyframes fadeIn {

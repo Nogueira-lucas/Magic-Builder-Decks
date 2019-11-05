@@ -1,10 +1,12 @@
 <div *ngIf="cards$ | async as response; else loading">
-    <div fxLayout.gt-sm="row wrap" 
+    <div class="cardsContainer"
+         fxLayout.gt-sm="row wrap" 
          fxLayout.sm="column" 
-         flexLayoutAlign="space-around"
+         flexLayoutAlign="space-between"
          fxLayoutAlign="center"
-         gdRow="3">
-        <mat-card @fadeCard *ngFor="let card of response.cards">
+         gdRow="6"
+         gdColumn="7">
+        <mat-card *ngFor="let card of response.cards | paginate: { itemsPerPage: 8, currentPage: p }">
             <mat-card-header>
                 <strong>
                     <h3>{{ card.name }}</h3>
@@ -15,10 +17,11 @@
                 <p class="cardText">{{ card.text }}</p>
             </mat-card-content>
         </mat-card>
+        <pagination-controls (pageChange)="p = $event"
+                             nextLabel="Proximo"
+                             previousLabel="Anterior">
+        </pagination-controls>
     </div>
-    <jw-pagination [items]="response.cards" 
-    (changePage)="onChangePage($event)" [pageSize]="5">
-    </jw-pagination>
 </div>
 <div *ngIf="isErrorOnLoadCards" class="errorPainel">
     <header>

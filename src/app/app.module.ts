@@ -10,7 +10,7 @@ import { ImagePreloadDirective } from './shared/image-preload.directive';
 import { MenuTopoComponent } from './menu-topo/menu-topo.component';
 import { CardListComponent } from './card-list/CardListComponent';
 import { RodapeComponent } from './rodape/rodape.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,6 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     ImagePreloadDirective,
     MenuTopoComponent,
     RodapeComponent,
-    JwPaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +26,7 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,43 +5,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MagicService } from '../services/card.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.css'],
-  animations: [
-    trigger('openClose', [
-      state('open', style({
-        height: '200px',
-        opacity: 1,
-        backgroundColor: 'yellow'
-      })),
-      state('closed', style({
-        height: '100px',
-        opacity: 0.5,
-        backgroundColor: 'green'
-      })),
-      transition('* => closed', [
-        animate('1s')
-      ]),
-      transition('* => open', [
-        animate('0.5s')
-      ]),
-    ]),
-    trigger('fadeCard', [
-      state('zero', style({
-        backgroundColor: 'rgba(0, 0, 0, 0)'
-      })),
-      state('final', style({
-        backgroundColor: 'none'
-      })),
-      transition('zero => final', [
-        animate('1s')
-      ])
-    ])
-  ]
 })
 export class CardListComponent implements OnInit {
 
@@ -51,10 +19,13 @@ export class CardListComponent implements OnInit {
 
   private cards$: Observable<Card[]>;
   private isErrorOnLoadCards: boolean;
+  p: number = 1;
+
 
   private IMAGE_DEFAULT_PATH = '../../assets/img/magic-card-error.jpg';
 
-  constructor(private cardService: MagicService) { }
+  constructor(private cardService: MagicService) {
+  }
 
   ngOnInit() {
     this.getCardList();
@@ -67,6 +38,14 @@ export class CardListComponent implements OnInit {
                           () => {
                             console.log('complete!');
                           });
+  }
+
+  findCard() {
+    
+  }
+
+  pageChange(newPage: number) {
+
   }
 
   getCardList() {
