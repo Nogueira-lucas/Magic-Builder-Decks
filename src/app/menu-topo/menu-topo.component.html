@@ -1,9 +1,14 @@
 <mat-toolbar class="navbar">
-    <div class="container" fxLayout="row">
-        <span>DeckBuilder</span>
-        <form class="example-form">
+    <div class="container" 
+        fxLayout="row" flexLayout="center"fxLayout="baseline">
+        <div class="logo">
+            <span>DeckBuilder</span>
+        </div>
+        <form class="searchInput">
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Find">
+                <input matInput #nomeCarta
+                       placeholder="Find by name" 
+                       (blur)="findCardByName(nomeCarta.value)">
             </mat-form-field>
         </form>
     </div>

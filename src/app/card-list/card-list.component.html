@@ -1,29 +1,30 @@
 <div *ngIf="cards$ | async as response; else loading">
     <div class="cardsContainer"
-         fxLayout.gt-sm="row wrap" 
-         fxLayout.sm="column" 
-         flexLayoutAlign="space-between"
-         fxLayoutAlign="center"
-         gdRow="6"
-         gdColumn="7">
+         fxLayout="row wrap"
+         fxFlexAlign="center">   
         <mat-card *ngFor="let card of response.cards | paginate: { itemsPerPage: 8, currentPage: p }">
             <mat-card-header>
                 <strong>
                     <h3>{{ card.name }}</h3>
                 </strong>
             </mat-card-header>
-            <img mat-card-image [src]="card.imageUrl" default="{{IMAGE_DEFAULT_PATH}}" class="img">
+            <img mat-card-image 
+                 [src]="card.imageUrl"
+                 default="{{IMAGE_DEFAULT_PATH}}" 
+                 class="img">
             <mat-card-content>
                 <p class="cardText">{{ card.text }}</p>
             </mat-card-content>
         </mat-card>
-        <pagination-controls (pageChange)="p = $event"
-                             nextLabel="Proximo"
-                             previousLabel="Anterior">
-        </pagination-controls>
     </div>
+    <pagination-controls
+        (pageChange)="p = $event"
+        nextLabel="Proximo"
+        previousLabel="Anterior">
+    </pagination-controls>
 </div>
-<div *ngIf="isErrorOnLoadCards" class="errorPainel">
+<div *ngIf="isErrorOnLoadCards" 
+     class="errorPainel">
     <header>
         <h3>Erro ao listar cards!</h3>
     </header>
@@ -31,5 +32,8 @@
 </div>
 
 <ng-template #loading>
-    <mat-progress-bar mode="indeterminate" *ngIf="!isErrorOnLoadCards"></mat-progress-bar>
+    <mat-progress-bar color="#F34" 
+                      mode="indeterminate"
+                      *ngIf="!isErrorOnLoadCards">
+    </mat-progress-bar>
 </ng-template>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { MagicService } from '../services/card.service';
+import {MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-menu-topo',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuTopoComponent implements OnInit {
 
-  constructor() { }
+  @Output() cardName = new EventEmitter();
+
+  constructor(private magicService: MagicService) {}
 
   ngOnInit() {
+  }
+
+  findCardByName(name: string) {
+    this.cardName.emit(name);
   }
 
 }

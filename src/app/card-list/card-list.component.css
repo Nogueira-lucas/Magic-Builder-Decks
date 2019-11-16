@@ -26,7 +26,7 @@ mat-card img{
         transform: rotateY(180deg);
     }
     to {
-        margin: 0.65%;
+        margin-top: 1%;
         opacity: 1;
         transform: rotateY(0);
     }
@@ -48,18 +48,25 @@ mat-card img{
 
 .errorPainel {
     border-radius: 5px;
-    width: 40%;
-    margin: 2% ;
+    max-width: 50%;
+    margin: 10px auto;
     color: #fff;
     padding: 3%;
     background-image: linear-gradient(0.50turn, rgb(68, 10, 97), rgba(105, 0, 113, 0.5));
 }
+
+@media only screen and (max-width: 768px) {
+    .errorPainel {
+        max-width: 90%;
+    }
+}
+
 .errorPainel h3 {
     font-size: 2em;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .errorPainel p {
     font-size: 1.8em;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

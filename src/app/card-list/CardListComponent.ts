@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Card } from 'mtgsdk-ts';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -17,10 +17,11 @@ export class CardListComponent implements OnInit {
   @ViewChild('mat-progress-bar', { static: false }) progress: MatProgressBarModule;
   @ViewChild('mat-paginator', { static: false }) paginator: MatPaginatorModule;
 
-  private cards$: Observable<Card[]>;
-  private isErrorOnLoadCards: boolean;
-  p: number = 1;
+  // tslint:disable-next-line: no-input-rename
+  @Input('card-list') cards$: Observable<Card[]>;
 
+  private isErrorOnLoadCards: boolean;
+  private p = 1;
 
   private IMAGE_DEFAULT_PATH = '../../assets/img/magic-card-error.jpg';
 
@@ -28,8 +29,6 @@ export class CardListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCardList();
-
     this.cards$.subscribe(next => {},
                           error => {
                             console.log('erro');
@@ -40,17 +39,7 @@ export class CardListComponent implements OnInit {
                           });
   }
 
-  findCard() {
-    
-  }
-
-  pageChange(newPage: number) {
-
-  }
-
-  getCardList() {
-    this.cards$ = this.cardService.getCardList();
-  }
+  pageChange(newPage: number) {}
 
   changePermission(item: string) {
     if (item) {
